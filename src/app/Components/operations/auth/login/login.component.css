@@ -1,0 +1,22 @@
+*{
+    font-family: Poppins;
+}
+input{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #ffc30a;
+    font-family: Poppins;
+    font-weight: 500;
+    border:none;
+}
+h1{
+   
+    font-weight: 500;
+}

@@ -1,0 +1,174 @@
+h3{
+    font-family: Poppins;
+}
+h1 {
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 600;
+}
+.circle{
+    border-radius: 100px;
+    background-color: #ffc30a;
+    width:  50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 20px 25px;
+    
+    border: 5px solid #FFF;
+    box-shadow: 0 0 2px #000;
+    cursor: pointer;
+
+}
+.border{
+    
+    width:  55px;
+    height: 55px;
+    border:  4px solid rgb(67, 67, 67) !important;
+}
+.container{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+   /*  justify-content: center;*/
+    
+    align-items: center; 
+}
+.formdiv input{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+}
+.formdiv2 input{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+}
+.formdiv3 input{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+}
+.formdiv select{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+
+}
+.formdiv2 select{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+
+}
+.formdiv3 select{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 10px 10px;
+
+}
+
+.formdiv textarea{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+
+}
+.formdiv2 textarea{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+
+}
+
+.formdiv{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    flex-direction: column;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #ffc30a;
+    font-family: Poppins;
+    font-weight: 500;
+    border:none;
+}
+.hide{
+    display: none;
+}
+.step3{
+   width: 1000px;
+    display: flex;
+    flex-direction: column;
+   
+}
+.headdiv{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.headdiv h3{
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .container{
+        display: none !important;
+    }
+    .main{
+        display: none !important;
+    }
+    
+}
+
+.notS  {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
+.notS p{
+    font-family: Poppins;
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+@media(min-width:600px){
+    .notS{
+        display: none !important;
+    }
+}

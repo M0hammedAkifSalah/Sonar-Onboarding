@@ -1,0 +1,18 @@
+<div style="display: flex;justify-content: center;flex-direction: column;padding: 20px;background-color: #fff; ">
+    <h2>Select Subjects <span class="count">{{subjectsCount}}
+        </span></h2>
+    <input type="text" placeholder="Search Subject Name" (input)="searchChange()" [(ngModel)]="searchSubject">
+    <div style="
+        height: 170px;
+        overflow: hidden;
+        overflow-y: auto;
+    ">
+        <div *ngFor="let sub of filteredSubjects" style="display: flex;justify-content: left;flex-direction: row;">
+            <mat-checkbox [(ngModel)]="sub.value" class="checkbox" (change)="selectedValue()">
+                {{sub.name}}
+            </mat-checkbox>
+        </div>
+    </div>
+
+    <button class="mybutton" style="margin-top: 25px;" (click)="add()">Add Subjects</button>
+</div>

@@ -1,0 +1,20 @@
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #ffc30a;
+    font-family: Poppins;
+    font-weight: 500;
+    border:none;
+}
+input{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+}

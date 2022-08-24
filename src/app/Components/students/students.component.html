@@ -1,0 +1,145 @@
+<ngx-ui-loader></ngx-ui-loader>
+<div class="container">
+   <div>
+    <div class="circle " (click)="step1()">
+        1
+      
+    </div>
+    <div style="text-align: center;">
+        School Details
+    </div>
+   </div>
+   <div>
+    <div class="circle"  (click)="step2()">
+        2
+    </div>
+    <div style="text-align: center;">
+        Branch Details
+    </div>
+   </div>
+
+   <div>
+    <div class="circle" (click)="step3()"  >
+        3
+    </div>
+    <div style="text-align: center;">
+        Classes
+    </div>
+   <!--  Modified for MFERD -->
+   <!--  <div class="circle"  style="cursor: no-drop;" >
+        3
+    </div>
+    <div style="text-align: center;">
+        Classes
+    </div> -->
+   </div>
+    <div>
+        <div class="circle border"  >
+            4
+        </div>
+        <div style="text-align: center;">
+            Students & Teachers
+        </div>
+    </div>
+   
+
+</div>
+
+<div class="main">
+    <mat-tab-group mat-stretch-tabs class="tabs" >
+        <!-- <mat-tab-group mat-stretch-tabs class="tabs" selectedIndex="1" > -->
+        <mat-tab >
+            <!-- <mat-tab disabled="true" > -->
+            <ng-template mat-tab-label>
+                <span>Student</span>
+            </ng-template>
+            
+            <div  style="display: flex;justify-content: space-between;">
+                <h1 style="text-align: left; margin-top: 25px;">Add Students</h1>
+                <a style="height: 20px; padding: 10px 20px;
+                border-radius: 10px;
+                background-color: #ffc30a;
+                font-family: Poppins;
+                font-weight: 500;
+                border:none;
+                margin: 10px;
+                color: #000; text-decoration: none; " href="../../../assets/sample-files/Student.xlsx" download="Student.xlsx">Download Sample</a>
+            </div>
+            <div class="main">
+
+                <div class="headdiv" style="width: 1000px;">
+                    <h3 style="width: 30%;text-align: center;">Class</h3>
+                    <h3 style="width: 30%;text-align: center;">Section</h3>
+                    <h3 style="width: 20%;text-align: center;">Upload File</h3>
+                    <h3 style="width: 10%;text-align: center;"> Preview</h3>
+                    <h3 style="width: 10%;text-align: center;"> Clear</h3>
+
+                </div>
+                <h1>
+                    {{test}}
+                </h1>
+                <div *ngIf="!isLoaded">
+                    Loading
+                </div>
+                <div *ngIf="isLoaded">
+                    <div  *ngFor="let class of classes;let i = index" style="width: 1000px;">
+                        <div style="display: flex;flex-direction: row;">
+                            <select style="width: 30%  " type="text" disabled>
+                                <option>{{class.Class.className}}</option>
+                            </select>
+                            <select style="width: 30%;" type="text" disabled>
+                                <option>{{class.Section.name}} </option>
+                            </select>
+                            
+                            
+                      
+                            <label  [ngClass]="IndexTable[i] ? (IndexTable[i].value ?  'uploaded' : 'custom-file-upload') :  'custom-file-upload'"  style="width: 18%;text-align: center;"  > <fa-icon (icon)="faUpload"></fa-icon> Upload <input [disabled]="IndexTable[i] ? IndexTable[i].value : false" type="file"
+                               (click)="onInputClick($event)"     (change)="fileUploaded($event,class,i)"></label>
+                              
+                           
+                                <div style="width: 11%;">
+                                    <button (click)="preview(class)"><fa-icon (icon)="faEye"></fa-icon>Preview</button>
+                                </div>
+                            <div style="width: 10%;"> 
+                                <button  (click)="clear(class,i)"><fa-icon (icon)="faTrashCan"></fa-icon>Clear</button>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+               
+
+                <div style="display: flex;justify-content: right;width: 100%;">
+                    <button (click)="bulkUpload()">Submit</button>
+                </div>
+               
+            </div>
+
+        </mat-tab>
+        <mat-tab> 
+            <ng-template mat-tab-label>
+                <span>Teacher</span>
+            </ng-template>
+            <div>
+                <h1 style="text-align: center; margin-top: 25px;">Add Teachers</h1>
+                <a style="height: 20px; padding: 10px 20px;
+                border-radius: 10px;
+                background-color: #ffc30a;
+                font-family: Poppins;
+                font-weight: 500;
+                border:none;
+                margin: 10px;
+                color: #000; text-decoration: none; " href="../../../assets/sample-files/Teachers.xlsx" download="Teachers.xlsx">Download Sample</a>
+                <label [ngClass]="isUploadEnableTeachers ? 'custom-file-upload' : 'uploaded' "  > Upload <input (click)="onInputClick($event)" type="file" (change)="bulkUploadTeachers($event)" [disabled]="!isUploadEnableTeachers"
+                        ></label>
+    
+                <button (click)="teachersPreview(globalTeachers)"><fa-icon (icon)="faEye"></fa-icon>Preview</button>
+               
+                <button (click)="clearTeachers()" > <fa-icon (icon)="faTrashCan"></fa-icon>Clear</button>
+                <button (click)="submitTeacher()">Submit</button>
+            </div>
+          
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

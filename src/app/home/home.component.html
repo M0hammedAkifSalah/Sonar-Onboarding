@@ -1,0 +1,238 @@
+<div class="notS">
+    <p>Not Supported in Mobile<br> Please Use Desktop/Laptop</p>
+    <p> Your School Code - {{data.schoolCode.value}}</p>
+</div>
+<div class="container">
+    <div>
+        <div class="circle " (click)="step1()" [ngClass]="{'border' : data.currStep.value == 1}">
+            1
+
+        </div>
+        <div style="text-align: center;">
+            School Details
+        </div>
+    </div>
+
+    <div>
+        <div class="circle" (click)="step2()" [ngClass]="{'border' : data.currStep.value == 2}">
+            2
+        </div>
+        <div style="text-align: center;">
+            Branch Details
+        </div>
+    </div>
+    <div>
+        <!-- Modified for Mferd -->
+        <div class="circle" (click)="step3()" [ngClass]="{'border' : data.currStep.value == 3}">
+            3
+        </div>
+        <div style="text-align: center;">
+            Classes
+        </div>
+        <!-- <div class="circle" [ngClass]="{'border' : data.currStep.value == 3}" style="cursor: no-drop;">
+        3
+    </div>
+    <div style="text-align: center;">
+        Classes
+    </div> -->
+    </div>
+    <div>
+        <div class="circle" (click)="step4()" [ngClass]="{'border' : data.currStep.value == 4}">
+            4
+        </div>
+        <div style="text-align: center;">
+            Students & Teachers
+        </div>
+    </div>
+
+</div>
+
+<div class="main">
+
+
+    <!-- STEP ONE DIV -->
+
+    <div class="step1"
+        [ngClass]="{'hide': data.currStep.value == 3 || data.currStep.value == 2 || data.currStep.value == 4 }">
+        <h1 style="text-align: left; margin-left: 30px;">School Details</h1>
+        <div class="formdiv">
+            <form [formGroup]="Form">
+                <input type="text" formControlName="School_Name" placeholder="School Name"
+                    style="width: 900px !important;">
+
+                <div>
+                    <input type="text" formControlName="Email" placeholder="Email" style="width: 440px !important;">
+                    <input type="tel" formControlName="Contact_Number" placeholder="Contact Number"
+                        style="width: 400px !important;">
+                </div>
+                <div style="display: flex; flex-direction:  row;">
+                    <select type="text" formControlName="InstituteType" placeholder="School / Institute Type"
+                        style="width: 50% !important;">
+
+                        <option value="Private"> Private </option>
+                        <option value="Government"> Government</option>
+                    </select>
+                    <select type="Number" formControlName="NoofBranches" placeholder="No. of Branches"
+                        style="width:50% !important;">
+                        <option> 1 </option>
+                    </select>
+                </div>
+                <div>
+                    <select type="text" formControlName="Country" placeholder="Country" style="width: 220px !important;"
+                        [(ngModel)]="Country">
+                        <!-- <option *ngIf="selectedCountry" disabledvalue="null">Select Country</option> -->
+                        <option *ngFor="let country of Country" [ngValue]="country">{{country.country_name}}</option>
+                    </select>
+                    <select type="text" (change)="getCities()" formControlName="State" placeholder="State"
+                        [ngModel]="selectedState?.state_name" style="width: 220px !important;">
+                        <option *ngIf="!selectedState" disabled selected value="null">Select State</option>
+                        <option *ngIf="selectedState" selected [ngValue]="selectedState">{{selectedState.state_name}}
+                        </option>
+                        <option *ngFor="let item of States" [ngValue]="item">{{item.state_name}} </option>
+                    </select>
+                    <select type="text" (change)="citySelected()" formControlName="City" placeholder="City"
+                        style="width: 220px !important;">
+                        <option *ngIf="!selectedCity" disabled selected value="null">Select City</option>
+                        <option *ngIf="selectedCity" selected [ngValue]="selectedCity"> {{selectedCity.city_name}}
+                        </option>
+                        <option *ngFor="let item of City" [ngValue]="item">{{item.city_name}}</option>
+                    </select>
+                    <input type="Number" formControlName="Pincode" placeholder="Pincode"
+                        style="width: 180px !important;">
+                </div>
+                <div>
+                    <textarea placeholder="Address" formControlName="Address" style="width:900px"></textarea>
+                </div>
+                <div style="display:flex; justify-content:space-between">
+                    <label>School Logo<input type="file" (change)="schoolUpload($event)"></label>
+                    <button (click)="onsubmit1()" style="margin-top: 20px;">Submit</button>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <!-- STEP 2 DIV -->
+    <div class="step2"
+        [ngClass]="{ 'hide': data.currStep.value == 1 || data.currStep.value == 3 || data.currStep.value == 4  }">
+        <h1 style="text-align: center;">Branch Details</h1>
+        <div class="formdiv" *ngFor="let obj of branches; let i =index">
+            <form [formGroup]="branchForm">
+
+
+                <input type="text" placeholder="Branch Name" formControlName="Branch_Name"
+                    style="width: 900px !important;">
+
+                <div>
+                    <input required type="text" formControlName="Branch_Email" placeholder="Email"
+                        style="width: 440px !important;">
+
+
+                    <input type="tel" formControlName="Branch_Contact" placeholder="Contact Number"
+                        style="width: 400px !important;">
+                </div>
+
+                <select type="text" formControlName="Branch_Country" placeholder="Country"
+                    style="width: 220px !important;" [(ngModel)]="Country">
+                    <option *ngFor="let country of Country">{{country.country_name}}</option>
+                </select>
+                <select type="text" (change)="getCities()" formControlName="Branch_State" placeholder="State"
+                    [(ngModel)]="selectedState" style="width: 220px !important;">
+                    <option *ngIf="!selectedState" disabled selected value="null">Select State</option>
+                    <option *ngIf="selectedState" selected [value]="selectedState">{{selectedState.state_name}}</option>
+                    <option *ngFor="let item of States" [value]="selectedState">{{item.state_name}} </option>
+                </select>
+
+
+                <select type="text" (change)="citySelected()" formControlName="Branch_City" placeholder="City"
+                    style="width: 220px !important;">
+                    <option *ngIf="!selectedCity" disabled selected value="null">Select City</option>
+                    <option *ngIf="selectedCity" selected> {{selectedCity.city_name}}
+                    </option>
+                    <option *ngFor="let item of City" [ngValue]="selectedCity">{{item.city_name}}</option>
+                </select>
+
+                <input type="Number" formControlName="Pincode" placeholder="Pincode" formControlName="Pincode"
+                    style="width: 180px !important;">
+
+                <div>
+                    <textarea placeholder="Branch_Address" formControlName="Branch_Address"
+                        style="width:900px"></textarea>
+                </div>
+
+
+
+
+            </form>
+        </div>
+        <div style="display:flex; justify-content:right">
+            <button (click)="branchSubmit()" style="margin-top: 20px;">Submit</button>
+        </div>
+    </div>
+
+    <!-- STEP 3 DIV -->
+
+    <div [ngClass]="{ 'hide': data.currStep.value == 2 || data.currStep.value == 1  || data.currStep.value == 4}">
+        <div class="step3 formdiv3">
+            <h1 style="text-align: center; margin-bottom: 10px;">Add Classes</h1>
+            <button (click)="selectSubjects(0,defaultSubjects,true)" style="width: 20%;align-self: flex-end;margin: 15px 60px;" [disabled]="!dselectSubjectBtn">Select Default Subjects</button>
+            <div class="headdiv ">
+                <h3 style="width: 20%;text-align: center;">Class</h3>
+                <h3 style="width: 20%;text-align: center;">Section</h3>
+                <h3 style="width: 20%;text-align: center;">Board</h3>
+                <h3 style="width: 20%;text-align: center;">Syllabus</h3>
+                <h3 style="width: 20%;text-align: center;">Subject</h3>
+
+            </div>
+            <div *ngFor="let obj of classes;let i=index">
+                <div>
+
+
+                    <select style="width: 18%; " type="text" [(ngModel)]="selectedClass[i]">
+                        <option disabled selected value="undefined">Select an Class</option>
+                        <option *ngFor="let item of obj.Class" [ngValue]="item._id">{{item.name}}</option>
+
+                    </select>
+
+                    <select style="width: 18%;" type="text" [(ngModel)]="selectedSec[i]"
+                        (change)="sectionChanged($event,i)">
+                        <!-- <option *ngIf="selectedSec[i]" [value]="selectedSec[i]">{{selectedSec[i]}}</option> -->
+                        <option *ngIf="!selectedSec[i]" disabled selected value="undefined">Select an Section</option>
+                        <option *ngFor="let item of obj.Section" [ngValue]="item.name"> {{item.name}}</option>
+                    </select>
+
+                    <select style="width: 18%;" type="text" [(ngModel)]="selectedBoard[i]">
+                        <option disabled selected value="undefined">Select an Board</option>
+                        <option *ngFor="let item of obj.Board" [ngValue]="item._id">{{item.name}}</option>
+                    </select>
+                    <select style="width: 18%;" type="text" [(ngModel)]="selectedSyllabus[i]">
+                        <option disabled selected value="undefined">Select an Syllabus</option>
+                        <option *ngFor="let item of obj.Syllabus" [ngValue]="item._id">{{item.name}}</option>
+                    </select>
+                    <!-- <select style="width: 18%;" type="text" [(ngModel)]="selectedSubject[i]">
+                        <option disabled selected value="undefined">Select an Subject</option>
+                        <option *ngFor="let item of obj.Subject" [ngValue]="item._id"> {{item.name}}</option>
+                    </select> -->
+                    <button (click)="selectSubjects(i,obj.Subject,false)" [disabled]="!selectSubjectBtn">Select Subjects</button>
+
+
+
+
+
+
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <button style="width: 10%; margin-top: 20px;" (click)="addclass()">+</button>
+                <button style="width: 20%; margin-top: 20px;" (click)="submitClasses()">Submit Classes</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

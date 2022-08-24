@@ -1,0 +1,27 @@
+<div class="container">
+   <!--  Left Side -->
+    <div class="logo-side">
+        <img src="../../assets/Logo.png" height="90px" width="90px" style="border-width: 0px 2px 0px 0px;border-style: solid; border-color: #757575 " >
+        <h2>Register Your Institution</h2>
+    </div>
+    
+    <!-- Right Side -->
+    <div *ngIf="service.schoolName.value" class="logo-side" style="width: auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;" >
+   
+<div style="display: flex;flex-direction: column;align-items: flex-end;margin-right: 5px;">
+    <h2 style="padding-top: 20px;">{{service.schoolName.value}}</h2>
+    <div style="display: flex;justify-content: center;flex-direction: row;">
+        <h4><b>Phone : </b>{{service.schoolNumber.value}}</h4>
+        <h4 style="margin-left: 10px;"><b>School Code :</b>{{service.schoolCode.value}}</h4>
+    </div>
+    
+   </div>   
+    
+   <img [src]="service.schoolImage.value" height="90px" width="90px" style="border-width: 0px 0px 0px 0px;border-style: solid; border-color: #757575 " >
+
+   <button style="margin-left: 10px;" (click)="logOut()">LogOut</button>
+</div>
+
+
+</div>
+

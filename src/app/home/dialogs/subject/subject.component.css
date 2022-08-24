@@ -1,0 +1,41 @@
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #ffc30a !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #ffc30a;
+}
+
+.mybutton {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #ffc30a;
+  font-family: Poppins;
+  font-weight: 500;
+  border: none;
+}
+
+input {
+  border: 1px solid #757575;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: 10px
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+}
+
+.count {
+  background-color: #ffc30a;
+  color: black;
+  padding: 05px 10px 05px 10px;
+  font-size: 17px;
+  border-radius: 10px;
+  margin-left: 10px;
+}

@@ -1,0 +1,182 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.left {
+    width: 20%;
+
+    background-color: #ffc30a;
+}
+
+.menu,
+button {
+    padding: 15px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: left;
+    margin: 5px;
+    font-family: Poppins;
+    font-weight: 600;
+
+}
+
+.btn:hover {
+    background-color: black;
+    color: #fff;
+}
+
+.active {
+    background-color: black;
+    color: #fff;
+}
+
+.logo {
+    margin-top: 15%;
+}
+
+.head-bar {
+    background-color: #ffc30a;
+    width: 70vw;
+    margin: 30px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-bar,
+input {
+    padding: 10px;
+    /*  margin: 0px 10px; */
+    border-radius: 10px;
+    border: 0px;
+    margin-right: 10px;
+}
+
+.formdiv input {
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 10px
+}
+
+.formdiv select {
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 10px
+}
+
+.formdiv textarea {
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 10px
+}
+
+.formdiv {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #ffc30a;
+    font-family: Poppins;
+    font-weight: 500;
+    border: none;
+}
+
+.sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 96.5%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #ffc30a;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #ffc30a;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #ffc30a;
+}
+
+.data-table {
+    margin: 30px;
+    width: 100%;
+}
+
+.custom-label {
+    padding: 60px 60px 60px 60px;
+}
+
+
+::ng-deep .mat-paginator-page-size {
+    display: none !important;
+}
+
+.sub-heading-bar {
+    display: flex;
+    background-color: #ffc30a;
+    border-radius: 20px;
+    height: 65px;
+    color: #222222;
+    align-items: flex-end;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.count {
+    background-color: white;
+    color: black;
+    padding: 05px 10px 05px 10px;
+    font-size: 17px;
+    border-radius: 10px;
+    margin-left: 10px;
+}

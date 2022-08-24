@@ -1,0 +1,42 @@
+*{
+    font-family: Poppins;
+}
+.mat-elevation-z8 {
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 3%), 0px 8px 20px 10px rgb(0 0 0 / 4%), 0px 3px 24px 2px rgb(0 0 0 / 6%);
+}
+button{
+    padding: 8px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffc30a;
+    font-weight: 500;
+}
+.formdiv input{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+}
+.formdiv select{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+
+}
+.formdiv textarea{
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:10px
+
+}
+.formdiv{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    flex-direction: column;
+}

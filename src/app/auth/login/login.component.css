@@ -1,0 +1,76 @@
+* {
+    font-family: Poppins;
+}
+
+input {
+    border: 1px solid #757575;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 10px
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #ffc30a;
+    font-family: Poppins;
+    font-weight: 500;
+    border: none;
+}
+
+h1 {
+
+    font-weight: 500;
+}
+
+.button-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40%;
+    margin-left: 65px;
+    margin-top: 15px;
+}
+.right-panel {
+    height: 100vh !important;
+    display: flex;
+    align-items: center;
+    width: 100% !important;
+   
+}
+@media (max-width: 600px) {
+
+    .left-panel {
+        display: none !important;
+    }
+
+    .right-panel {
+        height: 100vh !important;
+        display: flex;
+        align-items: center;
+        width: 100% !important;
+    }
+
+    .right-panel form {
+        width: 100% !important;
+    }
+
+    .right-panel input {
+        width: 80% !important;
+    }
+
+    .button-sec {
+        width: 80% !important;
+        margin-left: 0px !important;
+        justify-content: center;
+    }
+    .loginbtn{
+       margin-left: 10px;
+    }
+    .signupbtn{
+        margin-right: 10px;
+    }
+
+}
+

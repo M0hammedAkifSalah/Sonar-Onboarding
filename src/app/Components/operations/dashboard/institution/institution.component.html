@@ -1,0 +1,104 @@
+<div class="main" style="width: 100%;display: flex;justify-content: center;flex-direction: column">
+    <div class="List-Institutions" *ngIf="currTab == 2">
+        <div style="display: flex;justify-content: end; width: 98%;">
+            <button (click)="add()">Add Institution</button>
+        </div>
+        <!-- All Institutions -->
+        <div class="mat-elevation-z8" style="width: 95%;margin: 30px;">
+            <table mat-table [dataSource]="dataSource" style="width: 100%;">
+
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+                <ng-container matColumnDef="contact_number">
+                    <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.contact_number}} </td>
+                </ng-container>
+                <ng-container matColumnDef="noofschools">
+                    <th mat-header-cell *matHeaderCellDef> No of Schools </th>
+                    <td mat-cell *matCellDef="let element"> {{element.schoolList.length}} </td>
+                </ng-container>
+                <ng-container matColumnDef="institution_code">
+                    <th mat-header-cell *matHeaderCellDef> Institution Code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.institute_code}} </td>
+                </ng-container>
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Delete </th>
+                    <td mat-cell *matCellDef="let element"><button
+                            (click)="delete(element._id,element.name)">Delete</button></td>
+                </ng-container>
+                <ng-container matColumnDef="edit">
+                    <th mat-header-cell *matHeaderCellDef> Edit </th>
+                    <td mat-cell *matCellDef="let element"><button (click)="edit(element._id)">Edit</button></td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]">
+            </mat-paginator>
+        </div>
+    </div>
+
+
+    <!-- Add Institutions -->
+    <div class="add-institution" *ngIf="currTab == 1">
+        <div> <button style="margin-left: 30px;" (click)="changeTab(2)">Back</button> </div>
+        <div class="formdiv" style="width: 95%;margin: 30px;">
+            <form [formGroup]="Form">
+                <input type="text" formControlName="Institute_Name" placeholder="Institution Name"
+                    style="width: 94% !important;">
+
+                <div>
+                    <input type="text" formControlName="Email" placeholder="Email" style="width: 44% !important;">
+                    <input type="tel" formControlName="Contact_Number" placeholder="Contact Number"
+                        style="width: 44% !important;">
+                </div>
+
+                <div>
+                    <select type="text" formControlName="Country" placeholder="Country" style="width: 22% !important;" >
+                        <option *ngIf="!institute" disabled selected value=null> Select Country </option>
+                       
+                        <option *ngFor="let country of countries" [value]="country._id">{{country.country_name}}
+                        </option>
+
+                    </select>
+                    <select type="text" formControlName="State" placeholder="State" (change)="getCities()"
+                        style="width: 22% !important;">
+                        <option *ngIf="!institute" disabled selected value=null> Select State </option>
+                        <option *ngIf="institute" [value]="">{{institute.state.state_name}} </option>
+                        <option *ngFor="let state of states" [value]="state._id"> {{state.state_name}} </option>
+                    </select>
+                    <select type="text" formControlName="City" placeholder="City" style="width:22% !important;">
+                        <option *ngIf="!institute" disabled selected value=null> Select City </option>
+                        <option *ngIf="institute" [value]="institute.city._id">{{institute.city.city_name}} </option>
+                        <option *ngFor="let city of cities" [value]="city._id" >{{city.city_name}}</option>
+                    </select>
+                    <input type="Number" formControlName="Pincode" placeholder="Pincode" style="width: 22% !important;">
+                </div>
+                <div style="display: flex; flex-direction:  row;">
+                    <input type="text" formControlName="Website" placeholder="Website" style="width: 67% !important;">
+                    <label style="width: 55%;">School Logo<input type="file" (change)="schoolUpload($event)"></label>
+                </div>
+                <div>
+                    <textarea placeholder="Address" formControlName="Address" style="width:94%"></textarea>
+                </div>
+                <div style="display:flex; justify-content:end">
+
+                    <button class="form-btn" style="margin-top: 20px;" (click)="submit()">Submit</button>
+                    
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+</div>
